@@ -1,3 +1,7 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
+
 import mysql.connector
 from mysql.connector import InterfaceError , Error
 from _mysql_connector import *

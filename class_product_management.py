@@ -1,6 +1,7 @@
-import json
+#! /usr/bin/env python3
+# coding: utf-8
+
 import requests
-from datetime import date, datetime, timedelta
 import mysql.connector
 from constantes import *
 

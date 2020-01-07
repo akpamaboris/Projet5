@@ -1,3 +1,7 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
+
 finished_software = False
 display_favorite = False
 my_accepted_answear_a = [1, 2]

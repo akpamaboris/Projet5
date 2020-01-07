@@ -1,6 +1,9 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
+
 import mysql.connector
-from mysql.connector import errorcode
-from constantes import *
+
 
 
 class import_product_category:

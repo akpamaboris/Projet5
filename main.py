@@ -1,19 +1,12 @@
-import mysql.connector
-from constantes import *
+#! /usr/bin/env python3
+# coding: utf-8
+
 from class_initialise import *
 from class_create_db import *
-from class_verify_database import *
 from class_create_table import *
 from class_insert_product_category import *
-import json
-import mysql.connector
-from mysql.connector import  Error
-from mysql.connector import errorcode
-from mysql.connector import MySQLConnection, Error
-import requests
-from constantes import *
-from class_product_management import *
 from class_initialisation_debut import *
+from class_product_management import *
 
 
 finished_software = False
@@ -113,7 +106,7 @@ while not finished_software :
                 if int(reponse_user) not in (1,2,3,4,5):
                     raise ValueError
 
-            except ValueError:
+            except ValueError  :
                 print("Valeur non autorisée")
                 continue
 
@@ -133,64 +126,51 @@ while not finished_software :
             mycursor = mydb.cursor()
 
             final_answear = int(response_user_b)
-
-            row = None
-
-
-
-            result_answear = mycursor.execute(
+            mycursor.execute(
                 "SELECT product_name, product_id , nutrition_score , url FROM products  " "WHERE nutrition_score > {} AND category_id = {}".format(
                     dict[int(response_user_b)][1], int(reponse_user)))
 
-
-
             myresult = mycursor.fetchall()
 
-            if mycursor.rowcount > 0 :
-                selected_aliment_list = []
-                selected_aliment_id_list = []
-                selected_aliment_nutrition_score = []
-                selected_aliment_url = []
+            selected_aliment_list = []
+            selected_aliment_id_list = []
+            selected_aliment_nutrition_score = []
+            selected_aliment_url = []
 
-                for x in myresult:
-                    print("ALIMENT => ", x[0], " ID => ", x[1], "NUTRITION SCORE => ", x[2])
-                    selected_aliment_list.append(x[0])
-                    selected_aliment_id_list.append(x[1])
-                    selected_aliment_nutrition_score.append(x[2])
-                    selected_aliment_url.append(x[3])
+            for x in myresult:
+                print("ALIMENT => ", x[0]," ID => ", x[1],"NUTRITION SCORE => ", x[2])
+                selected_aliment_list.append(x[0])
+                selected_aliment_id_list.append(x[1])
+                selected_aliment_nutrition_score.append(x[2])
+                selected_aliment_url.append(x[3])
 
-                selected_dict_list = {i: [j, k, l] for i, j, k, l in
-                                      zip(selected_aliment_id_list, selected_aliment_list,
-                                          selected_aliment_nutrition_score, selected_aliment_url)}
+            selected_dict_list = {i: [j, k, l] for i, j, k ,l in zip(selected_aliment_id_list, selected_aliment_list,
+                                                               selected_aliment_nutrition_score, selected_aliment_url)}
 
-                # print(selected_dict_list)
-                print("Quel est l'id de l'aliment qui vous plait parmis les alternatives suivantes")
-                response_user_c = input("enter id ")
-                final_answear_c = int(response_user_c)
+            # print(selected_dict_list)
+            print("Quel est l'id de l'aliment qui vous plait parmis les alternatives suivantes")
+            response_user_c = input("enter id ")
+            final_answear_c = int(response_user_c)
 
-                my_favorite = []
+            my_favorite = []
 
-                for key, value in selected_dict_list.items():
-                    # print("ID => ", key, " NAME => ", value)
+            for key, value in selected_dict_list.items():
+                #print("ID => ", key, " NAME => ", value)
 
-                    if key == final_answear_c:
+                if key == final_answear_c:
+                    my_favorite.append(key)
+                    my_favorite.append(selected_dict_list[key])
 
-                        try :
-                            my_favorite.append(key)
-                            my_favorite.append(selected_dict_list[key])
-
-                            insert_my_favorites = InsertProduct.insert_favorites(reponse_user, my_favorite)
-
-                        except mysql.connector.errors.IntegrityError as e:
-                            print("Déjà dans tes favoris")
-
-
-            else:
-
-                print(" Pas d'alternative pour cet aliment ")
+                    try:
 
 
 
+
+                        insert_my_favorites = InsertProduct.insert_favorites(reponse_user, my_favorite)
+
+
+                    except mysql.connector.errors.IntegrityError :
+                        print("Déjà dans les favoris")
 
 
 
@@ -201,7 +181,6 @@ while not finished_software :
 
 
     elif int_reponse_init == 2 :
-
         display_favorite = False
 
         while not display_favorite :
@@ -209,22 +188,25 @@ while not finished_software :
                                        user="newuser", password="monmdp")
             mycursor = mydb.cursor()
 
-            mycursor.execute("SELECT category_id, product_name FROM favorites  ")
+            rows_count = mycursor.execute("SELECT category_id, product_name FROM favorites  ")
+
+
+
 
             myresult = mycursor.fetchall()
 
-            for x in myresult:
-                if mycursor.rowcount > 0:
+            if mycursor.rowcount > 0:
+
+                for x in myresult:
                     print(x)
-
-                else:
-                    print("Pas encore de favoris, ajoutez en")
-
-
-            display_favorite = True
-            break
+                display_favorite = True
+                break
 
 
+            else :
+                print("Pas encore de favoris")
+                display_favorite =True
+                break
 
 
 
