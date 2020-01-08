@@ -3,7 +3,11 @@
 
 #Dictionary
 
-DICO = {1 :"aliments-et-boissons-a-base-de-vegetaux" , 2 : "aliments-d-origine-vegetale", 3 : "Snacks", 4 :"Boissons", 5:"snacks-sucres"}
+
+"""This class contains all the constantes of the application"""
+
+DICO ={1 :"aliments-et-boissons-a-base-de-vegetaux" , 2 : "aliments-d-origine-vegetale",
+        3 : "Snacks", 4 :"Boissons", 5:"snacks-sucres"}
 
 
 #URL
@@ -44,8 +48,10 @@ TABLES ['products'] = (
 
 
 TABLES ['favorites '] = ("CREATE TABLE favorites (category_id INTEGER UNSIGNED NOT NULL,"
-                         "product_name VARCHAR(90) NOT NULL, product_id INTEGER UNSIGNED AUTO_INCREMENT,"
+                         "product_name VARCHAR(90) NOT NULL, product_id INTEGER UNSIGNED "
+                         "AUTO_INCREMENT,"
                          "url VARCHAR(200) NOT NULL, store VARCHAR(200),"
-                         " PRIMARY KEY (product_id, product_name) , UNIQUE (product_id, product_name), "
+                         " PRIMARY KEY (product_id, product_name) , "
+                         "UNIQUE (product_id, product_name), "
                          "FOREIGN KEY (category_id) REFERENCES category (category_id)"
                          ") ENGINE = InnoDB;")

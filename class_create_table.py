@@ -43,11 +43,3 @@ class Create_tables :
 
 
 
-
-
-
-
-#mycursor.execute("CREATE TABLE category(category_id int unsigned AUTO_INCREMENT, "
-              #   "category_name varchar(40), PRIMARY KEY (category_id)) ENGINE = InnoDB")
-
-

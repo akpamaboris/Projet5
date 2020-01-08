@@ -1,6 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+
+"""This is the main file of the application. The one you should run to have access to the functionalities."""
+
 from class_initialise import *
 from class_create_db import *
 from class_create_table import *
@@ -22,7 +25,6 @@ while not finished_software :
 
         reponse_initialisation = input("    ")
         int_reponse_init = int(reponse_initialisation)
-
         if int_reponse_init not in (1,2):
             raise ValueError
     except ValueError:
@@ -47,7 +49,7 @@ while not finished_software :
             continue
 
 
-        if int_reponse_initialisation_de_base == 1 :
+        if int_reponse_initialisation_de_base == 1:
             # I initialise the database
             Initialisation = Initialise_db()
             Initialisation.initialise_database()
@@ -90,6 +92,7 @@ while not finished_software :
 
 
         elif int_reponse_initialisation_de_base ==2:
+        #Asking the user for his input
 
 
             print("Tapez le numéro associé à la requête de votre choix")
@@ -127,7 +130,8 @@ while not finished_software :
 
             final_answear = int(response_user_b)
             mycursor.execute(
-                "SELECT product_name, product_id , nutrition_score , url FROM products  " "WHERE nutrition_score > {} AND category_id = {}".format(
+                "SELECT product_name, product_id , nutrition_score , url FROM products  " "WHERE nutrition_score > "
+                "{} AND category_id = {}".format(
                     dict[int(response_user_b)][1], int(reponse_user)))
 
             myresult = mycursor.fetchall()
@@ -181,9 +185,11 @@ while not finished_software :
 
 
     elif int_reponse_init == 2 :
+    #If the user answears 2
+
         display_favorite = False
 
-        while not display_favorite :
+        while not display_favorite:
             mydb = mysql.connector.connect(host="localhost", database="OpenFood",
                                        user="newuser", password="monmdp")
             mycursor = mydb.cursor()
@@ -196,6 +202,7 @@ while not finished_software :
             myresult = mycursor.fetchall()
 
             if mycursor.rowcount > 0:
+            #If there is anything in the cursor print the result
 
                 for x in myresult:
                     print(x)
@@ -203,7 +210,9 @@ while not finished_software :
                 break
 
 
-            else :
+            else:
+            # If there is something in the cursor print the result
+
                 print("Pas encore de favoris")
                 display_favorite =True
                 break
