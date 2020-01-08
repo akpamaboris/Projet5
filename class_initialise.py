@@ -3,8 +3,6 @@
 
 
 import mysql.connector
-from mysql.connector import InterfaceError , Error
-from _mysql_connector import *
 
 class Initialise_db :
 
