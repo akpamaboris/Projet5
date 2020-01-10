@@ -7,6 +7,7 @@ from constantes import *
 
 
 
+"""This class contains all the management of products that are essential to the application"""
 
 
 

@@ -1,6 +1,10 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+
+"""This class contains all the operations to create a table"""
+
+
 import mysql.connector
 from mysql.connector import errorcode
 from constantes import *

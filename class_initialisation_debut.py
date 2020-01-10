@@ -11,6 +11,6 @@ class Initialisation_debut :
 
     def initialisation(self,):
 
-        print("Appuye sur 1 pour rechercher des aliments , appuye sur 2 pour afficher les favoris" + "\n")
+        print("Appuyes sur 1 pour rechercher des aliments , appuyes sur 2 pour afficher les favoris, tapes 0 pour quitter" + "\n")
 
 

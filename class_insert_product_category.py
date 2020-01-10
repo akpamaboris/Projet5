@@ -4,6 +4,7 @@
 
 import mysql.connector
 
+"""This class contains all the importation  of products that are essential to the application"""
 
 
 class import_product_category:

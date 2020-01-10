@@ -25,10 +25,10 @@ while not finished_software :
 
         reponse_initialisation = input("    ")
         int_reponse_init = int(reponse_initialisation)
-        if int_reponse_init not in (1,2):
+        if int_reponse_init not in (1,2,0):
             raise ValueError
     except ValueError:
-        reponse_initialisation = 0
+
         print("Valeur non authorisée ")
         continue
 
@@ -216,6 +216,11 @@ while not finished_software :
                 print("Pas encore de favoris")
                 display_favorite =True
                 break
+
+    elif int_reponse_init == 0:
+
+        print("Merci d'avoir utiliser notre application"+ "\n" "A bientôt ")
+        finished_software = True
 
 
 
