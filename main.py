@@ -14,18 +14,18 @@ from class_product_management import *
 
 finished_software = False
 display_favorite = False
-debut_programme = Initialisation_debut()
+start_program = Initialisation_start()
 my_accepted_answear_a = [1, 2]
 
 while not finished_software :
 
     try :
 
-        debut_programme.initialisation()
+        start_program.initialisation()
 
-        reponse_initialisation = input("    ")
-        int_reponse_init = int(reponse_initialisation)
-        if int_reponse_init not in (1,2,0):
+        response_initialisation = input("    ")
+        int_response_init = int(response_initialisation)
+        if int_response_init not in (1,2,0):
             raise ValueError
     except ValueError:
 
@@ -34,14 +34,14 @@ while not finished_software :
 
 
 
-    if int_reponse_init == 1 :
+    if int_response_init == 1 :
         try :
             print("Est ce que tu veux réinitialiser la base de donnée ?")
             print("Tape 1 pour réinitialiser , tape 2 pour continuer")
             reponse_initialisation_de_base = input("   ")
-            int_reponse_initialisation_de_base = int(reponse_initialisation_de_base)
+            int_response_initialisation_of_base = int(reponse_initialisation_de_base)
 
-            if int_reponse_initialisation_de_base not in (1, 2):
+            if int_response_initialisation_of_base not in (1, 2):
                 raise ValueError
         except ValueError:
             reponse_initialisation_de_base = 0
@@ -49,7 +49,7 @@ while not finished_software :
             continue
 
 
-        if int_reponse_initialisation_de_base == 1:
+        if int_response_initialisation_of_base == 1:
             # I initialise the database
             Initialisation = Initialise_db()
             Initialisation.initialise_database()
@@ -91,7 +91,7 @@ while not finished_software :
             insert_Snacks_Sucres.insertion()
 
 
-        elif int_reponse_initialisation_de_base ==2:
+        elif int_response_initialisation_of_base ==2:
         #Asking the user for his input
 
 
@@ -184,7 +184,7 @@ while not finished_software :
 
 
 
-    elif int_reponse_init == 2 :
+    elif int_response_init == 2 :
     #If the user answears 2
 
         display_favorite = False
@@ -217,7 +217,7 @@ while not finished_software :
                 display_favorite =True
                 break
 
-    elif int_reponse_init == 0:
+    elif int_response_init == 0:
 
         print("Merci d'avoir utiliser notre application"+ "\n" "A bientôt ")
         finished_software = True
