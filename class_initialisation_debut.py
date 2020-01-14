@@ -4,6 +4,8 @@
 
 
 class Initialisation_start :
+    """This class displays the intialisation message"""
+
 
 
     def __init__(self):

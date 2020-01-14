@@ -11,6 +11,8 @@ from constantes import *
 
 
 class Create_tables :
+    """This class creates the tables"""
+
 
     # Initialiser
 

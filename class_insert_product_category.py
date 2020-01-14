@@ -8,6 +8,8 @@ import mysql.connector
 
 
 class import_product_category:
+    """This class imports the products"""
+
 
     def __init__(self):
 

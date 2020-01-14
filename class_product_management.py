@@ -13,7 +13,9 @@ from constantes import *
 
 
 class InsertProduct:
-    #variables
+
+    """This class manages the products """
+
 
 
 

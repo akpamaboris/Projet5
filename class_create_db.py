@@ -8,6 +8,7 @@ import mysql.connector
 
 class Create_database :
 
+    """This class creates the database"""
 
     #Initialiser
 
