@@ -119,6 +119,7 @@ while not finished_software :
             dict = InsertProduct.select_category_product(reponse_user)
 
             print("Quel est l'ID de l'aliment que vous souhaitez remplacer")
+
             response_user_b = input('enter value')  # I take the answear of the user
 
 
@@ -127,8 +128,13 @@ while not finished_software :
                                            user="newuser", password="monmdp")
 
             mycursor = mydb.cursor()
+            try :
 
-            final_answear = int(response_user_b)
+                final_answear = int(response_user_b)
+            except ValueError:
+                print("ce n'est pas un chiffre")
+                continue
+
             mycursor.execute(
                 "SELECT product_name, product_id , nutrition_score , url , store FROM products  " "WHERE nutrition_score > "
                 "{} AND category_id = {}".format(
@@ -154,7 +160,14 @@ while not finished_software :
             # print(selected_dict_list)
             print("Quel est l'id de l'aliment qui vous plait parmis les alternatives suivantes")
             response_user_c = input("enter id ")
-            final_answear_c = int(response_user_c)
+            try :
+
+                final_answear_c = int(response_user_c)
+
+            except ValueError :
+                print("ce n'est pas un chiffre")
+                continue
+
 
             my_favorite = []
 
