@@ -130,7 +130,7 @@ while not finished_software :
 
             final_answear = int(response_user_b)
             mycursor.execute(
-                "SELECT product_name, product_id , nutrition_score , url FROM products  " "WHERE nutrition_score > "
+                "SELECT product_name, product_id , nutrition_score , url , store FROM products  " "WHERE nutrition_score > "
                 "{} AND category_id = {}".format(
                     dict[int(response_user_b)][1], int(reponse_user)))
 
